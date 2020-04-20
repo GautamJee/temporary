@@ -1,0 +1,216 @@
+
+#server_perf.sh
+gautam@mypc:~/tempfolder$ cat perf.sh
+pid=$1
+events="task-clock,br_misp_retired.conditional,branch-instructions,branch-misses,l2_rqsts.miss,l2_rqsts.references,bus-cycles,cache-references,cpu-cycles,instructions"
+
+#sudo perf stat -p $pid sleep 60 -e $events
+sudo perf stat  -e $events  sleep 60 $i
+
+#pox
+
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 14880,14883,14882,14884
+
+ Performance counter stats for process id '14880,14883,14882,14884':
+
+         53,111.25 msec task-clock                #    0.885 CPUs utilized
+     2,445,351,892      mem_load_uops_retired.l1_miss #   46.042 M/sec                    (7.73%)
+       433,276,516      br_misp_retired.conditional #    8.158 M/sec                    (7.28%)
+    29,823,300,401      branch-instructions       #  561.525 M/sec                    (10.28%)
+     1,076,347,912      branch-misses             #    3.61% of all branches          (10.23%)
+     3,004,567,125      l2_rqsts.miss             #   56.571 M/sec                    (9.46%)
+     8,399,468,747      l2_rqsts.references       #  158.149 M/sec                    (9.92%)
+     5,287,997,487      bus-cycles                #   99.565 M/sec                    (10.13%)
+     2,925,773,575      cache-references          #   55.088 M/sec                    (9.65%)
+   134,436,748,052      cpu-cycles                #    2.531 GHz                      (12.47%)
+   149,024,325,371      instructions              #    1.11  insn per cycle           (14.73%)
+
+      60.001563325 seconds time elapsed
+
+
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 14880,14883,14882,14884
+
+ Performance counter stats for process id '14880,14883,14882,14884':
+
+         38,006.84 msec task-clock                #    0.633 CPUs utilized
+     1,637,640,077      mem_load_uops_retired.l1_miss #   43.088 M/sec                    (8.13%)
+       341,005,449      br_misp_retired.conditional #    8.972 M/sec                    (7.21%)
+    21,748,981,111      branch-instructions       #  572.239 M/sec                    (9.99%)
+       833,313,499      branch-misses             #    3.83% of all branches          (10.34%)
+     2,241,187,199      l2_rqsts.miss             #   58.968 M/sec                    (9.94%)
+     6,300,232,662      l2_rqsts.references       #  165.766 M/sec                    (9.89%)
+     3,744,810,079      bus-cycles                #   98.530 M/sec                    (9.88%)
+     2,210,879,036      cache-references          #   58.171 M/sec                    (9.29%)
+   101,875,881,766      cpu-cycles                #    2.680 GHz                      (12.69%)
+   102,678,665,985      instructions              #    1.01  insn per cycle           (14.94%)
+
+      60.001666783 seconds time elapsed
+
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 14880,14883,14882,14884
+
+ Performance counter stats for process id '14880,14883,14882,14884':
+
+         31,157.50 msec task-clock                #    0.519 CPUs utilized
+     1,348,193,599      mem_load_uops_retired.l1_miss #   43.270 M/sec                    (8.10%)
+       245,926,392      br_misp_retired.conditional #    7.893 M/sec                    (6.94%)
+    17,150,026,350      branch-instructions       #  550.430 M/sec                    (10.58%)
+       652,975,186      branch-misses             #    3.81% of all branches          (10.54%)
+     1,621,834,641      l2_rqsts.miss             #   52.053 M/sec                    (10.19%)
+     4,637,480,064      l2_rqsts.references       #  148.840 M/sec                    (9.69%)
+     3,103,555,333      bus-cycles                #   99.609 M/sec                    (9.92%)
+     1,520,169,109      cache-references          #   48.790 M/sec                    (10.54%)
+    77,979,524,630      cpu-cycles                #    2.503 GHz                      (12.08%)
+    88,492,551,692      instructions              #    1.13  insn per cycle           (14.06%)
+
+      60.001983896 seconds time elapsed
+
+
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 15168
+
+ Performance counter stats for process id '15168':
+
+         16,247.52 msec task-clock                #    0.271 CPUs utilized
+       886,697,348      mem_load_uops_retired.l1_miss #   54.574 M/sec                    (60.11%)
+       224,336,722      br_misp_retired.conditional #   13.807 M/sec                    (40.56%)
+    10,564,580,892      branch-instructions       #  650.227 M/sec                    (19.85%)
+       451,127,702      branch-misses             #    4.27% of all branches          (29.87%)
+     1,103,022,541      l2_rqsts.miss             #   67.889 M/sec                    (39.89%)
+     3,149,004,960      l2_rqsts.references       #  193.815 M/sec                    (39.67%)
+     1,592,228,247      bus-cycles                #   97.998 M/sec                    (39.88%)
+     1,078,759,173      cache-references          #   66.395 M/sec                    (39.77%)
+    46,930,982,234      cpu-cycles                #    2.889 GHz                      (49.96%)
+    50,391,689,281      instructions              #    1.07  insn per cycle           (60.10%)
+
+      60.000883598 seconds time elapsed
+
+
+$ryu
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 15168
+
+ Performance counter stats for process id '15168':
+
+         16,523.90 msec task-clock                #    0.275 CPUs utilized
+       958,579,021      mem_load_uops_retired.l1_miss #   58.012 M/sec                    (59.87%)
+       241,805,805      br_misp_retired.conditional #   14.634 M/sec                    (39.67%)
+    11,247,982,237      branch-instructions       #  680.710 M/sec                    (19.95%)
+       474,576,143      branch-misses             #    4.22% of all branches          (30.16%)
+     1,121,003,917      l2_rqsts.miss             #   67.841 M/sec                    (40.13%)
+     3,275,980,443      l2_rqsts.references       #  198.257 M/sec                    (40.40%)
+     1,617,600,340      bus-cycles                #   97.895 M/sec                    (40.30%)
+     1,118,194,203      cache-references          #   67.671 M/sec                    (40.16%)
+    49,004,096,505      cpu-cycles                #    2.966 GHz                      (50.03%)
+    54,304,002,559      instructions              #    1.11  insn per cycle           (59.95%)
+
+      60.001024852 seconds time elapsed
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 15168
+
+ Performance counter stats for process id '15168':
+
+         17,713.93 msec task-clock                #    0.295 CPUs utilized
+     1,034,488,048      mem_load_uops_retired.l1_miss #   58.400 M/sec                    (60.23%)
+       247,918,416      br_misp_retired.conditional #   13.996 M/sec                    (40.08%)
+    11,780,825,955      branch-instructions       #  665.060 M/sec                    (20.00%)
+       494,075,191      branch-misses             #    4.19% of all branches          (29.98%)
+     1,202,021,424      l2_rqsts.miss             #   67.857 M/sec                    (39.77%)
+     3,464,031,119      l2_rqsts.references       #  195.554 M/sec                    (39.87%)
+     1,726,523,673      bus-cycles                #   97.467 M/sec                    (39.90%)
+     1,203,740,698      cache-references          #   67.954 M/sec                    (39.93%)
+    52,538,763,881      cpu-cycles                #    2.966 GHz                      (50.02%)
+    58,430,902,399      instructions              #    1.11  insn per cycle           (59.94%)
+
+      60.000821251 seconds time elapsed
+
+
+###cbench.sh
+port="-p 6653" # ryu 6653 pox 6633
+controller="-c 10.138.140.64"
+mode="-t" #throughput -t
+#loops="-l 16"
+loops="-l 200"
+#macaddresses="-M 100000"
+macaddresses="-M 1000000"
+#switches="-s 16"
+switches="-s 32"
+#cpulist="taskset --cpu-list 7"
+cpulist=""
+$cpulist cbench $controller $loops $macaddresses $mode
+
+
+
+
+
+
+
+
+
+
+#system_information
+gautam@mypc ~$ lscpu
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   39 bits physical, 48 bits virtual
+CPU(s):                          8
+On-line CPU(s) list:             0-7
+Thread(s) per core:              2
+Core(s) per socket:              4
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           60
+Model name:                      Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+Stepping:                        3
+CPU MHz:                         810.456
+CPU max MHz:                     4400.0000
+CPU min MHz:                     800.0000
+BogoMIPS:                        8000.33
+Virtualization:                  VT-x
+L1d cache:                       128 KiB
+L1i cache:                       128 KiB
+L2 cache:                        1 MiB
+L3 cache:                        8 MiB
+NUMA node0 CPU(s):               0-7
+
+
+#lstopo_command_system_architecture
+
+gautam@mypc:~$ lstopo -.txt
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Machine (31GB)                                                                                                   │
+│                                                                                                                  │
+│ ┌────────────────────────────────────────────────────────────────┐            ┌────────────────────────────────┐ │
+│ │ Package P#0                                                    │  ├┤╶─┬─────┤ PCI 8086:0412                  │ │
+│ │                                                                │      │     │                                │ │
+│ │ ┌────────────────────────────────────────────────────────────┐ │      │     │ ┌────────────┐  ┌────────────┐ │ │
+│ │ │ L3 (8192KB)                                                │ │      │     │ │ renderD128 │  │ controlD64 │ │ │
+│ │ └────────────────────────────────────────────────────────────┘ │      │     │ └────────────┘  └────────────┘ │ │
+│ │                                                                │      │     │                                │ │
+│ │ ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐ │      │     │ ┌───────┐                      │ │
+│ │ │ L2 (256KB) │  │ L2 (256KB) │  │ L2 (256KB) │  │ L2 (256KB) │ │      │     │ │ card0 │                      │ │
+│ │ └────────────┘  └────────────┘  └────────────┘  └────────────┘ │      │     │ └───────┘                      │ │
+│ │                                                                │      │     └────────────────────────────────┘ │
+│ │ ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐ │      │                                        │
+│ │ │ L1d (32KB) │  │ L1d (32KB) │  │ L1d (32KB) │  │ L1d (32KB) │ │      │ 0.2       0.2 ┌───────────────┐        │
+│ │ └────────────┘  └────────────┘  └────────────┘  └────────────┘ │      ├─────┼┤╶───────┤ PCI 10ec:8168 │        │
+│ │                                                                │      │               │               │        │
+│ │ ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐ │      │               │ ┌────────┐    │        │
+│ │ │ L1i (32KB) │  │ L1i (32KB) │  │ L1i (32KB) │  │ L1i (32KB) │ │      │               │ │ enp2s0 │    │        │
+│ │ └────────────┘  └────────────┘  └────────────┘  └────────────┘ │      │               │ └────────┘    │        │
+│ │                                                                │      │               └───────────────┘        │
+│ │ ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐ │      │                                        │
+│ │ │ Core P#0   │  │ Core P#1   │  │ Core P#2   │  │ Core P#3   │ │      │     ┌───────────────┐                  │
+│ │ │            │  │            │  │            │  │            │ │      └─────┤ PCI 8086:8c82 │                  │
+│ │ │ ┌────────┐ │  │ ┌────────┐ │  │ ┌────────┐ │  │ ┌────────┐ │ │            │               │                  │
+│ │ │ │ PU P#0 │ │  │ │ PU P#1 │ │  │ │ PU P#2 │ │  │ │ PU P#3 │ │ │            │ ┌─────┐       │                  │
+│ │ │ └────────┘ │  │ └────────┘ │  │ └────────┘ │  │ └────────┘ │ │            │ │ sda │       │                  │
+│ │ │ ┌────────┐ │  │ ┌────────┐ │  │ ┌────────┐ │  │ ┌────────┐ │ │            │ └─────┘       │                  │
+│ │ │ │ PU P#4 │ │  │ │ PU P#5 │ │  │ │ PU P#6 │ │  │ │ PU P#7 │ │ │            └───────────────┘                  │
+│ │ │ └────────┘ │  │ └────────┘ │  │ └────────┘ │  │ └────────┘ │ │                                               │
+│ │ └────────────┘  └────────────┘  └────────────┘  └────────────┘ │                                               │
+│ └────────────────────────────────────────────────────────────────┘                                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

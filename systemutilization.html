@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://localhost/phpmyadmin/systemutilization.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<script type="text/javascript">
+window.onload = function () {
+
+var cpu = new CanvasJS.Chart("cpu", {
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "CPU Utilization (%)"
+	},
+  axisX: {
+		title: "Time (sec)"
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		name: "RYU",
+		color: "green",
+		dataPoints: [
+			{ y: 10.4, label: "10" },
+			{ y: 10.8, label: "30" },
+			{ y: 7.9, label: "60" },
+			{ y: 8.8, label: "120" },
+			{ y: 13.8, label: "180" },
+			{ y: 19.9, label: "240" },
+			{ y: 21.3, label: "300" }
+		]
+	},
+	{
+		type: "column",
+		showInLegend: true,
+		name: "POX",
+		color: "blue",
+		dataPoints: [
+			{ y: 13.8, label: "10" },
+			{ y: 20.4, label: "30" },
+			{ y: 17.0, label: "60" },
+			{ y: 17.2, label: "120" },
+			{ y: 16.8, label: "180" },
+			{ y: 39.8, label: "240" },
+			{ y: 40.8, label: "300" }
+		]
+	}
+	]
+});
+cpu.render();
+
+var clockspeed = new CanvasJS.Chart("clockspeed", {
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "Clock Speed (GHz)"
+	},
+  axisX: {
+		title: "Time (sec)"
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		name: "RYU",
+		color: "green",
+		dataPoints: [
+			{ y: 2.663, label: "10" },
+			{ y: 2.233, label: "30" },
+			{ y: 2.335, label: "60" },
+			{ y: 2.756, label: "120" },
+			{ y: 2.497, label: "180" },
+			{ y: 2.858, label: "240" },
+			{ y: 2.730, label: "300" }
+		]
+	},
+	{
+		type: "column",
+		showInLegend: true,
+		name: "POX",
+		color: "blue",
+		dataPoints: [
+			{ y: 0.948, label: "10" },
+			{ y: 1.061, label: "30" },
+			{ y: 1.210, label: "60" },
+			{ y: 1.387, label: "120" },
+			{ y: 1.359, label: "180" },
+			{ y: 1.875, label: "240" },
+			{ y: 2.240, label: "300" }
+		]
+	}
+	]
+});
+clockspeed.render();
+
+var ipc = new CanvasJS.Chart("ipc", {
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "Instructions Per Cycle"
+	},
+  axisX: {
+		title: "Time (sec)"
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		name: "RYU",
+		color: "green",
+		dataPoints: [
+			{ y: 1.08, label: "10" },
+			{ y: 1.07, label: "30" },
+			{ y: 1.08, label: "60" },
+			{ y: 1.11, label: "120" },
+			{ y: 1.09, label: "180" },
+			{ y: 1.09, label: "240" },
+			{ y: 1.10, label: "300" }
+		]
+	},
+	{
+		type: "column",
+		showInLegend: true,
+		name: "POX",
+		color: "blue",
+		dataPoints: [
+			{ y: 0.75, label: "10" },
+			{ y: 0.99, label: "30" },
+			{ y: 0.96, label: "60" },
+			{ y: 1.05, label: "120" },
+			{ y: 1.04, label: "180" },
+			{ y: 1.08, label: "240" },
+			{ y: 1.08, label: "300" }
+		]
+	}
+	]
+});
+ipc.render();
+
+var l1miss = new CanvasJS.Chart("l1miss", {
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "L1 Cache Miss Rate"
+	},
+  axisX: {
+		title: "Time (sec)"
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		name: "RYU",
+		color: "green",
+		dataPoints: [
+			{ y: 78.83, label: "10" },
+			{ y: 79.99, label: "30" },
+			{ y: 81.49, label: "60" },
+			{ y: 79.35, label: "120" },
+			{ y: 82.33, label: "180" },
+			{ y: 80.38, label: "240" },
+			{ y: 81.55, label: "300" }
+		]
+	},
+	{
+		type: "column",
+		showInLegend: true,
+		name: "POX",
+		color: "blue",
+		dataPoints: [
+			{ y: 39.05, label: "10" },
+			{ y: 65.74, label: "30" },
+			{ y: 57.11, label: "60" },
+			{ y: 77.73, label: "120" },
+			{ y: 79.71, label: "180" },
+			{ y: 83.16, label: "240" },
+			{ y: 80.75, label: "300" }
+		]
+	}
+	]
+});
+l1miss.render();
+
+
+var brmissrate = new CanvasJS.Chart("brmissrate", {
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "Branch Miss Rate"
+	},
+  axisX: {
+		title: "Time (sec)"
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		name: "RYU",
+		color: "green",
+		dataPoints: [
+			{ y: 4.56, label: "10" },
+			{ y: 4.35, label: "30" },
+			{ y: 4.30, label: "60" },
+			{ y: 4.05, label: "120" },
+			{ y: 4.31, label: "180" },
+			{ y: 4.29, label: "240" },
+			{ y: 4.21, label: "300" }
+		]
+	},
+	{
+		type: "column",
+		showInLegend: true,
+		name: "POX",
+		color: "blue",
+		dataPoints: [
+			{ y: 4.85, label: "10" },
+			{ y: 3.61, label: "30" },
+			{ y: 4.28, label: "60" },
+			{ y: 3.60, label: "120" },
+			{ y: 3.77, label: "180" },
+			{ y: 3.82, label: "240" },
+			{ y: 3.87, label: "300" }
+		]
+	}
+	]
+});
+brmissrate.render();
+
+var l2missrate = new CanvasJS.Chart("l2missrate", {
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "L2 Cache Miss Rate"
+	},
+  axisX: {
+		title: "Time (sec)"
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		name: "RYU",
+		color: "green",
+		dataPoints: [
+			{ y: 34.68, label: "10" },
+			{ y: 34.86, label: "30" },
+			{ y: 54.52, label: "60" },
+			{ y: 36.60, label: "120" },
+			{ y: 34.75, label: "180" },
+			{ y: 35.66, label: "240" },
+			{ y: 34.91, label: "300" }
+		]
+	},
+	{
+		type: "column",
+		showInLegend: true,
+		name: "POX",
+		color: "blue",
+		dataPoints: [
+			{ y: 37.09, label: "10" },
+			{ y: 37.31, label: "30" },
+			{ y: 44.21, label: "60" },
+			{ y: 37.75, label: "120" },
+			{ y: 37.34, label: "180" },
+			{ y: 33.22, label: "240" },
+			{ y: 35.32, label: "300" }
+		]
+	}
+	]
+});
+l2missrate.render();
+
+function toolTipFormatter(e) {
+	var str = "";
+	var total = 0 ;
+	var str3;
+	var str2 ;
+	for (var i = 0; i < e.entries.length; i++){
+		var str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\">" + e.entries[i].dataSeries.name + "</span>: <strong>"+  e.entries[i].dataPoint.y + "</strong> <br/>" ;
+		total = e.entries[i].dataPoint.y + total;
+		str = str.concat(str1);
+	}
+	total = e.entries[0].dataPoint.y / e.entries[1].dataPoint.y;
+	var rounded = Math.round(total * 100) / 100;
+	str2 = "<strong>" + e.entries[0].dataPoint.label + "sec</strong> <br/>";
+	str3 = "<span style = \"color:Tomato\">Ratio: </span><strong>" + rounded + "</strong><br/>";
+	return (str2.concat(str)).concat(str3);
+}
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+</head>
+<body>
+<div id="cpu" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; -webkit-tap-highlight-color: transparent; user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 0px; left: 29px; bottom: -216px; transition: left 0.1s ease-out 0s, bottom 0.1s ease-out 0s;"><div style="width: auto; height: auto; min-width: 50px; margin: 0px; padding: 5px; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-weight: normal; font-style: normal; font-size: 14px; color: black; text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px; text-align: left; border: 1px solid green; background: rgba(255, 255, 255, 0.9); text-indent: 0px; white-space: nowrap; border-radius: 0px; user-select: none;"><strong>10sec</strong> <br><span style="color:green">RYU</span>: <strong>10.4</strong> <br><span style="color:blue">POX</span>: <strong>13.8</strong> <br><span style="color:Tomato">Ratio: </span><strong>0.75</strong><br></div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
+<div id="clockspeed" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; -webkit-tap-highlight-color: transparent; user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 0px; left: 642px; bottom: -83px; transition: left 0.1s ease-out 0s, bottom 0.1s ease-out 0s;"><div style="width: auto; height: auto; min-width: 50px; margin: 0px; padding: 5px; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-weight: normal; font-style: normal; font-size: 14px; color: black; text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px; text-align: left; border: 1px solid green; background: rgba(255, 255, 255, 0.9); text-indent: 0px; white-space: nowrap; border-radius: 0px; user-select: none;"><strong>180sec</strong> <br><span style="color:green">RYU</span>: <strong>2.497</strong> <br><span style="color:blue">POX</span>: <strong>1.359</strong> <br><span style="color:Tomato">Ratio: </span><strong>1.84</strong><br></div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
+<div id="ipc" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; -webkit-tap-highlight-color: transparent; user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 0px; left: 646px; bottom: -209px; transition: left 0.1s ease-out 0s, bottom 0.1s ease-out 0s;"><div style="width: auto; height: auto; min-width: 50px; margin: 0px; padding: 5px; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-weight: normal; font-style: normal; font-size: 14px; color: black; text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px; text-align: left; border: 1px solid green; background: rgba(255, 255, 255, 0.9); text-indent: 0px; white-space: nowrap; border-radius: 0px; user-select: none;"><strong>180sec</strong> <br><span style="color:green">RYU</span>: <strong>1.09</strong> <br><span style="color:blue">POX</span>: <strong>1.04</strong> <br><span style="color:Tomato">Ratio: </span><strong>1.05</strong><br></div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
+<div id="l1miss" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; -webkit-tap-highlight-color: transparent; user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 0px; left: 647px; bottom: -101px; transition: left 0.1s ease-out 0s, bottom 0.1s ease-out 0s;"><div style="width: auto; height: auto; min-width: 50px; margin: 0px; padding: 5px; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-weight: normal; font-style: normal; font-size: 14px; color: black; text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px; text-align: left; border: 1px solid green; background: rgba(255, 255, 255, 0.9); text-indent: 0px; white-space: nowrap; border-radius: 0px; user-select: none;"><strong>180sec</strong> <br><span style="color:green">RYU</span>: <strong>82.33</strong> <br><span style="color:blue">POX</span>: <strong>79.71</strong> <br><span style="color:Tomato">Ratio: </span><strong>1.03</strong><br></div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
+<div id="brmissrate" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; -webkit-tap-highlight-color: transparent; user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 5px;"><div style=" width: auto;height: auto;min-width: 50px;line-height: auto;margin: 0px 0px 0px 0px;padding: 5px;font-family: Calibri, Arial, Georgia, serif;font-weight: normal;font-style: italic;font-size: 14px;color: #000000;text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);text-align: left;border: 2px solid gray;background: rgba(255,255,255,.9);text-indent: 0px;white-space: nowrap;border-radius: 5px;-moz-user-select:none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;} "> Sample Tooltip</div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
+<div id="l2missrate" style="height: 300px; width: 100%;"><div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;"><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; user-select: none;"></canvas><canvas class="canvasjs-chart-canvas" width="1869" height="495" style="width: 1133px; height: 300px; position: absolute; -webkit-tap-highlight-color: transparent; user-select: none; cursor: default;"></canvas><div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;"></div><div class="canvasjs-chart-tooltip" style="position: absolute; height: auto; box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 2px; z-index: 1000; pointer-events: none; display: none; border-radius: 0px; left: 644px; bottom: -156px; transition: left 0.1s ease-out 0s, bottom 0.1s ease-out 0s;"><div style="width: auto; height: auto; min-width: 50px; margin: 0px; padding: 5px; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-weight: normal; font-style: normal; font-size: 14px; color: black; text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px; text-align: left; border: 1px solid green; background: rgba(255, 255, 255, 0.9); text-indent: 0px; white-space: nowrap; border-radius: 0px; user-select: none;"><strong>180sec</strong> <br><span style="color:green">RYU</span>: <strong>34.75</strong> <br><span style="color:blue">POX</span>: <strong>37.34</strong> <br><span style="color:Tomato">Ratio: </span><strong>0.93</strong><br></div></div><a class="canvasjs-chart-credit" title="JavaScript Charts" style="outline:none;margin:0px;position:absolute;right:2px;top:286px;color:dimgrey;text-decoration:none;font-size:11px;font-family: Calibri, Lucida Grande, Lucida Sans Unicode, Arial, sans-serif" tabindex="-1" target="_blank" href="https://canvasjs.com/">CanvasJS.com</a></div></div>
+<script src="./systemutilization_files/canvasjs.min.js.download"></script>
+
+<span style="position: absolute; left: 0px; top: -20000px; padding: 0px; margin: 0px; border: none; white-space: pre; line-height: normal; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-size: 15px; font-weight: normal; display: none;">Mpgyi</span></body></html>

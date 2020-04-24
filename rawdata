@@ -7,122 +7,309 @@ events="task-clock,br_misp_retired.conditional,branch-instructions,branch-misses
 #sudo perf stat -p $pid sleep 60 -e $events
 sudo perf stat  -e $events  sleep 60 $i
 
-#pox
 
-gautam@mypc:~/tempfolder/pox$ ./perf.sh 14880,14883,14882,14884
+  
+  
+  
+  gautam@mypc:~/tempfolder/pox$ ./perf.sh 10036,10037,10038,1                                                                0034
+[sudo] password for gautam:
 
- Performance counter stats for process id '14880,14883,14882,14884':
+ Performance counter stats for process id '10036,10037,10038,10034':
 
-         53,111.25 msec task-clock                #    0.885 CPUs utilized
-     2,445,351,892      mem_load_uops_retired.l1_miss #   46.042 M/sec                    (7.73%)
-       433,276,516      br_misp_retired.conditional #    8.158 M/sec                    (7.28%)
-    29,823,300,401      branch-instructions       #  561.525 M/sec                    (10.28%)
-     1,076,347,912      branch-misses             #    3.61% of all branches          (10.23%)
-     3,004,567,125      l2_rqsts.miss             #   56.571 M/sec                    (9.46%)
-     8,399,468,747      l2_rqsts.references       #  158.149 M/sec                    (9.92%)
-     5,287,997,487      bus-cycles                #   99.565 M/sec                    (10.13%)
-     2,925,773,575      cache-references          #   55.088 M/sec                    (9.65%)
-   134,436,748,052      cpu-cycles                #    2.531 GHz                      (12.47%)
-   149,024,325,371      instructions              #    1.11  insn per cycle           (14.73%)
+          1,386.52 msec task-clock                #    0.138 CPUs utilized
+        11,084,807      mem_load_uops_retired.l1_miss #    7.995 M/sec                    (9.80%) l1rate  39.05
+         6,202,574      br_misp_retired.conditional #    4.473 M/sec                    (6.51%)
+       208,396,168      branch-instructions       #  150.302 M/sec                    (9.83%)
+        10,108,064      branch-misses             #    4.85% of all branches          (10.42%)
+        30,502,242      l2_rqsts.miss             #   21.999 M/sec                    (10.04%) l2rate 37.09
+        82,225,694      l2_rqsts.references       #   59.304 M/sec                    (9.93%)
+       140,651,814      bus-cycles                #  101.442 M/sec                    (7.89%)
+        28,380,645      cache-references          #   20.469 M/sec                    (8.02%)
+     1,314,851,809      cpu-cycles                #    0.948 GHz                      (13.93%)
+       981,642,329      instructions              #    0.75  insn per cycle           (11.79%)
 
-      60.001563325 seconds time elapsed
-
-
-gautam@mypc:~/tempfolder/pox$ ./perf.sh 14880,14883,14882,14884
-
- Performance counter stats for process id '14880,14883,14882,14884':
-
-         38,006.84 msec task-clock                #    0.633 CPUs utilized
-     1,637,640,077      mem_load_uops_retired.l1_miss #   43.088 M/sec                    (8.13%)
-       341,005,449      br_misp_retired.conditional #    8.972 M/sec                    (7.21%)
-    21,748,981,111      branch-instructions       #  572.239 M/sec                    (9.99%)
-       833,313,499      branch-misses             #    3.83% of all branches          (10.34%)
-     2,241,187,199      l2_rqsts.miss             #   58.968 M/sec                    (9.94%)
-     6,300,232,662      l2_rqsts.references       #  165.766 M/sec                    (9.89%)
-     3,744,810,079      bus-cycles                #   98.530 M/sec                    (9.88%)
-     2,210,879,036      cache-references          #   58.171 M/sec                    (9.29%)
-   101,875,881,766      cpu-cycles                #    2.680 GHz                      (12.69%)
-   102,678,665,985      instructions              #    1.01  insn per cycle           (14.94%)
-
-      60.001666783 seconds time elapsed
-
-gautam@mypc:~/tempfolder/pox$ ./perf.sh 14880,14883,14882,14884
-
- Performance counter stats for process id '14880,14883,14882,14884':
-
-         31,157.50 msec task-clock                #    0.519 CPUs utilized
-     1,348,193,599      mem_load_uops_retired.l1_miss #   43.270 M/sec                    (8.10%)
-       245,926,392      br_misp_retired.conditional #    7.893 M/sec                    (6.94%)
-    17,150,026,350      branch-instructions       #  550.430 M/sec                    (10.58%)
-       652,975,186      branch-misses             #    3.81% of all branches          (10.54%)
-     1,621,834,641      l2_rqsts.miss             #   52.053 M/sec                    (10.19%)
-     4,637,480,064      l2_rqsts.references       #  148.840 M/sec                    (9.69%)
-     3,103,555,333      bus-cycles                #   99.609 M/sec                    (9.92%)
-     1,520,169,109      cache-references          #   48.790 M/sec                    (10.54%)
-    77,979,524,630      cpu-cycles                #    2.503 GHz                      (12.08%)
-    88,492,551,692      instructions              #    1.13  insn per cycle           (14.06%)
-
-      60.001983896 seconds time elapsed
+      10.039783825 seconds time elapsed
 
 
 
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 10082,10084,10085,1                                                                0080
 
-gautam@mypc:~/tempfolder/ryu$ ./perf.sh 15168
+ Performance counter stats for process id '10082,10084,10085,10080':
 
- Performance counter stats for process id '15168':
+          6,128.92 msec task-clock                #    0.204 CPUs utilized
+        80,775,235      mem_load_uops_retired.l1_miss #   13.179 M/sec                    (8.81%) l1rate 65.74
+        27,922,638      br_misp_retired.conditional #    4.556 M/sec                    (7.03%)
+     1,101,644,016      branch-instructions       #  179.745 M/sec                    (9.44%)
+        39,781,386      branch-misses             #    3.61% of all branches          (10.95%)
+       133,534,028      l2_rqsts.miss             #   21.788 M/sec                    (9.40%) l2rate 37.31
+       357,833,089      l2_rqsts.references       #   58.384 M/sec                    (9.17%)
+       604,868,068      bus-cycles                #   98.691 M/sec                    (8.98%)
+       122,853,133      cache-references          #   20.045 M/sec                    (11.36%)
+     6,501,798,286      cpu-cycles                #    1.061 GHz                      (13.41%)
+     6,431,310,962      instructions              #    0.99  insn per cycle           (12.73%)
 
-         16,247.52 msec task-clock                #    0.271 CPUs utilized
-       886,697,348      mem_load_uops_retired.l1_miss #   54.574 M/sec                    (60.11%)
-       224,336,722      br_misp_retired.conditional #   13.807 M/sec                    (40.56%)
-    10,564,580,892      branch-instructions       #  650.227 M/sec                    (19.85%)
-       451,127,702      branch-misses             #    4.27% of all branches          (29.87%)
-     1,103,022,541      l2_rqsts.miss             #   67.889 M/sec                    (39.89%)
-     3,149,004,960      l2_rqsts.references       #  193.815 M/sec                    (39.67%)
-     1,592,228,247      bus-cycles                #   97.998 M/sec                    (39.88%)
-     1,078,759,173      cache-references          #   66.395 M/sec                    (39.77%)
-    46,930,982,234      cpu-cycles                #    2.889 GHz                      (49.96%)
-    50,391,689,281      instructions              #    1.07  insn per cycle           (60.10%)
-
-      60.000883598 seconds time elapsed
-
-
-$ryu
-gautam@mypc:~/tempfolder/ryu$ ./perf.sh 15168
-
- Performance counter stats for process id '15168':
-
-         16,523.90 msec task-clock                #    0.275 CPUs utilized
-       958,579,021      mem_load_uops_retired.l1_miss #   58.012 M/sec                    (59.87%)
-       241,805,805      br_misp_retired.conditional #   14.634 M/sec                    (39.67%)
-    11,247,982,237      branch-instructions       #  680.710 M/sec                    (19.95%)
-       474,576,143      branch-misses             #    4.22% of all branches          (30.16%)
-     1,121,003,917      l2_rqsts.miss             #   67.841 M/sec                    (40.13%)
-     3,275,980,443      l2_rqsts.references       #  198.257 M/sec                    (40.40%)
-     1,617,600,340      bus-cycles                #   97.895 M/sec                    (40.30%)
-     1,118,194,203      cache-references          #   67.671 M/sec                    (40.16%)
-    49,004,096,505      cpu-cycles                #    2.966 GHz                      (50.03%)
-    54,304,002,559      instructions              #    1.11  insn per cycle           (59.95%)
-
-      60.001024852 seconds time elapsed
+      30.002364425 seconds time elapsed
 
 
-gautam@mypc:~/tempfolder/ryu$ ./perf.sh 15168
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 10247,10244,10246,10248
 
- Performance counter stats for process id '15168':
+ Performance counter stats for process id '10247,10244,10246,10248':
 
-         17,713.93 msec task-clock                #    0.295 CPUs utilized
-     1,034,488,048      mem_load_uops_retired.l1_miss #   58.400 M/sec                    (60.23%)
-       247,918,416      br_misp_retired.conditional #   13.996 M/sec                    (40.08%)
-    11,780,825,955      branch-instructions       #  665.060 M/sec                    (20.00%)
-       494,075,191      branch-misses             #    4.19% of all branches          (29.98%)
-     1,202,021,424      l2_rqsts.miss             #   67.857 M/sec                    (39.77%)
-     3,464,031,119      l2_rqsts.references       #  195.554 M/sec                    (39.87%)
-     1,726,523,673      bus-cycles                #   97.467 M/sec                    (39.90%)
-     1,203,740,698      cache-references          #   67.954 M/sec                    (39.93%)
-    52,538,763,881      cpu-cycles                #    2.966 GHz                      (50.02%)
-    58,430,902,399      instructions              #    1.11  insn per cycle           (59.94%)
+         10,177.81 msec task-clock                #    0.170 CPUs utilized
+       134,499,085      mem_load_uops_retired.l1_miss #   13.215 M/sec                    (8.31%) l1rate  57.11
+        46,369,852      br_misp_retired.conditional #    4.556 M/sec                    (8.15%)
+     1,767,147,413      branch-instructions       #  173.628 M/sec                    (11.22%)
+        75,650,574      branch-misses             #    4.28% of all branches          (9.37%)
+       255,445,565      l2_rqsts.miss             #   25.098 M/sec                    (10.14%) l2rate 44.21
+       577,726,654      l2_rqsts.references       #   56.763 M/sec                    (8.05%)
+     1,009,045,155      bus-cycles                #   99.142 M/sec                    (9.82%)
+       235,492,007      cache-references          #   23.138 M/sec                    (9.08%)
+    12,313,933,009      cpu-cycles                #    1.210 GHz                      (12.08%)
+    11,829,939,468      instructions              #    0.96  insn per cycle           (16.34%)
 
-      60.000821251 seconds time elapsed
+      60.001849209 seconds time elapsed
+
+gautam@mypc:~/tempfolder/pox$
+
+
+
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 10096,10097,10098,1                                                                0094
+
+ Performance counter stats for process id '10096,10097,10098,10094':
+
+         20,697.37 msec task-clock                #    0.172 CPUs utilized
+       408,599,999      mem_load_uops_retired.l1_miss #   19.742 M/sec                    (8.51%) l1rate 77.73
+       104,452,457      br_misp_retired.conditional #    5.047 M/sec                    (6.88%)
+     5,413,431,817      branch-instructions       #  261.552 M/sec                    (9.54%)
+       194,823,575      branch-misses             #    3.60% of all branches          (8.94%)
+       591,792,856      l2_rqsts.miss             #   28.593 M/sec                    (10.26%) l2rate 37.75
+     1,567,685,158      l2_rqsts.references       #   75.743 M/sec                    (9.37%)
+     2,017,958,104      bus-cycles                #   97.498 M/sec                    (10.30%)
+       525,662,785      cache-references          #   25.398 M/sec                    (10.36%)
+    28,698,115,725      cpu-cycles                #    1.387 GHz                      (12.02%)
+    30,022,785,851      instructions              #    1.05  insn per cycle           (15.34%)
+
+     120.002426869 seconds time elapsed
+
+
+
+
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 10115,10116,10117,10113
+
+ Performance counter stats for process id '10115,10116,10117,10113':
+
+         30,282.20 msec task-clock                #    0.168 CPUs utilized
+       630,999,709      mem_load_uops_retired.l1_miss #   20.837 M/sec                    (8.42%) l1rate 79.71
+       162,483,244      br_misp_retired.conditional #    5.366 M/sec                    (6.74%)
+     7,705,332,613      branch-instructions       #  254.451 M/sec                    (10.00%)
+       290,272,222      branch-misses             #    3.77% of all branches          (10.05%)
+       834,896,109      l2_rqsts.miss             #   27.571 M/sec                    (9.90%)
+     2,235,598,464      l2_rqsts.references       #   73.825 M/sec                    (9.46%) l2rate 37.34
+     2,946,399,485      bus-cycles                #   97.298 M/sec                    (9.86%)
+       791,501,093      cache-references          #   26.138 M/sec                    (10.18%)
+    41,148,547,021      cpu-cycles                #    1.359 GHz                      (12.43%)
+    42,598,210,260      instructions              #    1.04  insn per cycle           (14.70%)
+
+     180.002124572 seconds time elapsed
+
+gautam@mypc:~/tempfolder/pox$
+
+
+ gautam@mypc:~/tempfolder/pox$ ./perf.sh 10195,10196,10197,0193
+
+ Performance counter stats for process id '10195,10196,10197,0193':
+
+         95,576.67 msec task-clock                #    0.398 PUs utilized
+     3,007,019,020      mem_load_uops_retired.l1_miss #   31.62 M/sec                    (8.12%) l1rate 83.16
+       609,064,844      br_misp_retired.conditional #    6.37 M/sec                    (7.50%)
+    36,541,308,648      branch-instructions       #  382.325 /sec                    (10.12%)
+     1,397,547,116      branch-misses             #    3.82% f all branches          (9.86%)
+     3,612,703,060      l2_rqsts.miss             #   37.799 /sec                    (9.86%) l2rate  33.22
+    10,873,676,593      l2_rqsts.references       #  113.769 /sec                    (10.06%)
+     9,461,729,610      bus-cycles                #   98.996 /sec                    (9.95%)
+     3,633,925,510      cache-references          #   38.021 /sec                    (10.12%)
+   179,186,620,229      cpu-cycles                #    1.875 Hz                      (12.37%)
+   194,184,877,377      instructions              #    1.08  nsn per cycle           (14.56%)
+
+     240.001492627 seconds time elapsed
+
+
+
+gautam@mypc:~/tempfolder/pox$
+
+
+
+gautam@mypc:~/tempfolder/pox$ ./perf.sh 10892,10895,10894,10896
+
+ Performance counter stats for process id '10892,10895,10894,10896':
+
+        122,637.24 msec task-clock                #    0.408 CPUs utilized
+     6,067,230,851      mem_load_uops_retired.l1_miss #   37.305 M/sec                    (9.24%) l1rate  80.75
+     1,187,098,234      br_misp_retired.conditional #    7.299 M/sec                    (7.60%)
+    75,960,065,750      branch-instructions       #  467.052 M/sec                    (10.05%)
+     2,938,569,748      branch-misses             #    3.87% of all branches          (10.06%)
+     7,563,883,817      l2_rqsts.miss             #   46.508 M/sec                    (9.90%)
+    21,412,828,510      l2_rqsts.references       #  131.660 M/sec                    (10.07%) l2rate  35.32
+    16,179,339,848      bus-cycles                #   99.481 M/sec                    (9.87%)
+     7,513,538,248      cache-references          #   46.198 M/sec                    (9.92%)
+   364,281,220,515      cpu-cycles                #    2.240 GHz                      (12.45%)
+   392,586,813,881      instructions              #    1.08  insn per cycle           (15.21%)
+
+     300.001383705 seconds time elapsed
+
+gautam@mypc:~/tempfolder/pox$
+
+
+
+
+
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10361 10
+
+ Performance counter stats for process id '10361':
+
+          1,040.86 msec task-clock                #    0.104 CPUs utilized
+        52,612,718      mem_load_uops_retired.l1_miss #   50.547 M/sec                    (59.52%) l1rate 78.83
+        12,812,371      br_misp_retired.conditional #   12.309 M/sec                    (42.96%)
+       547,135,720      branch-instructions       #  525.658 M/sec                    (22.29%)
+        24,975,682      branch-misses             #    4.56% of all branches          (31.21%)
+        63,629,260      l2_rqsts.miss             #   61.131 M/sec                    (40.48%) l2rate 34.68
+       183,446,455      l2_rqsts.references       #  176.245 M/sec                    (38.63%)
+       103,194,712      bus-cycles                #   99.144 M/sec                    (38.52%)
+        66,741,296      cache-references          #   64.121 M/sec                    (38.40%)
+     2,771,848,507      cpu-cycles                #    2.663 GHz                      (48.82%)
+     2,986,222,763      instructions              #    1.08  insn per cycle           (59.47%)
+
+      10.000991908 seconds time elapsed
+
+gautam@mypc:~/tempfolder/ryu$
+
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10370 30
+
+ Performance counter stats for process id '10370':
+
+          3,252.11 msec task-clock                #    0.108 CPUs utilized
+       134,164,445      mem_load_uops_retired.l1_miss #   41.255 M/sec                    (60.31%) l1rate 79.99
+        36,022,016      br_misp_retired.conditional #   11.076 M/sec                    (39.50%)
+     1,545,668,690      branch-instructions       #  475.281 M/sec                    (19.90%)
+        67,278,808      branch-misses             #    4.35% of all branches          (30.15%)
+       165,167,832      l2_rqsts.miss             #   50.788 M/sec                    (39.69%) l2rate 34.86
+       473,674,717      l2_rqsts.references       #  145.651 M/sec                    (39.70%)
+       320,542,369      bus-cycles                #   98.564 M/sec                    (40.55%)
+       167,708,266      cache-references          #   51.569 M/sec                    (40.48%)
+     7,261,529,891      cpu-cycles                #    2.233 GHz                      (50.11%)
+     7,755,729,263      instructions              #    1.07  insn per cycle           (60.02%)
+
+      30.000991927 seconds time elapsed
+
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10349
+
+ Performance counter stats for process id '10349':
+
+          4,727.57 msec task-clock                #    0.079 CPUs utilized
+       207,641,030      mem_load_uops_retired.l1_miss #   43.921 M/sec                    (60.92%) l1rate 81.49
+        52,575,251      br_misp_retired.conditional #   11.121 M/sec                    (41.10%)
+     2,405,421,172      branch-instructions       #  508.807 M/sec                    (19.76%)
+       103,531,628      branch-misses             #    4.30% of all branches          (29.31%)
+       253,445,846      l2_rqsts.miss             #   53.610 M/sec                    (39.08%)
+       728,279,270      l2_rqsts.references       #  154.049 M/sec                    (39.11%) l2rate 54.52
+       464,836,259      bus-cycles                #   98.325 M/sec                    (39.19%)
+       254,777,406      cache-references          #   53.892 M/sec                    (39.49%)
+    11,041,212,115      cpu-cycles                #    2.335 GHz                      (50.12%)
+    11,888,250,744      instructions              #    1.08  insn per cycle           (60.26%)
+
+      60.000861457 seconds time elapsed
+
+gautam@mypc:~/tempfolder/ryu$
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10387 120
+
+ Performance counter stats for process id '10387':
+
+         10,609.49 msec task-clock                #    0.088 CPUs utilized
+       576,116,124      mem_load_uops_retired.l1_miss #   54.302 M/sec                    (60.05%)
+       135,976,198      br_misp_retired.conditional #   12.816 M/sec                    (39.95%)  l1rate 79.35
+     6,698,544,728      branch-instructions       #  631.373 M/sec                    (19.88%)
+       270,970,999      branch-misses             #    4.05% of all branches          (29.96%)
+       727,827,514      l2_rqsts.miss             #   68.602 M/sec                    (39.95%) l2rate 36.60
+     1,988,317,625      l2_rqsts.references       #  187.409 M/sec                    (40.06%)
+     1,036,443,140      bus-cycles                #   97.690 M/sec                    (40.03%)
+       725,979,949      cache-references          #   68.427 M/sec                    (40.00%)
+    29,238,134,991      cpu-cycles                #    2.756 GHz                      (49.90%)
+    32,567,070,631      instructions              #    1.11  insn per cycle           (59.92%)
+
+     120.001168866 seconds time elapsed
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10397 180
+
+ Performance counter stats for process id '10397':
+
+         24,832.01 msec task-clock                #    0.138 CPUs utilized
+     1,182,675,444      mem_load_uops_retired.l1_miss #   47.627 M/sec                    (59.86%) l1rate 82.33
+       301,893,425      br_misp_retired.conditional #   12.157 M/sec                    (39.71%)  
+    13,685,387,916      branch-instructions       #  551.119 M/sec                    (20.06%)
+       589,892,383      branch-misses             #    4.31% of all branches          (30.04%)
+     1,428,750,810      l2_rqsts.miss             #   57.537 M/sec                    (40.14%) l2rate 34.75
+     4,110,556,888      l2_rqsts.references       #  165.535 M/sec                    (40.31%)
+     2,437,659,586      bus-cycles                #   98.166 M/sec                    (40.32%)
+     1,436,367,491      cache-references          #   57.843 M/sec                    (40.22%)
+    62,007,190,243      cpu-cycles                #    2.497 GHz                      (50.02%)
+    67,611,559,458      instructions              #    1.09  insn per cycle           (59.86%)
+
+     180.001086228 seconds time elapsed
+
+gautam@mypc:~/tempfolder/ryu$
+
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10794 240
+[sudo] password for gautam:
+
+ Performance counter stats for process id '10794':
+
+         47,811.20 msec task-clock                #    0.199 CPUs utilized
+     2,597,798,725      mem_load_uops_retired.l1_miss #   54.335 M/sec                    (59.78%) l1rate 80.38
+       691,581,853      br_misp_retired.conditional #   14.465 M/sec                    (39.84%)
+    31,564,643,651      branch-instructions       #  660.194 M/sec                    (19.98%)
+     1,353,641,105      branch-misses             #    4.29% of all branches          (30.04%)
+     3,303,615,659      l2_rqsts.miss             #   69.097 M/sec                    (40.22%) l2rate 35.66
+     9,262,082,966      l2_rqsts.references       #  193.722 M/sec                    (40.19%)
+     4,694,671,768      bus-cycles                #   98.192 M/sec                    (40.20%)
+     3,231,783,460      cache-references          #   67.595 M/sec                    (40.17%)
+   136,649,105,300      cpu-cycles                #    2.858 GHz                      (49.99%)
+   148,851,395,845      instructions              #    1.09  insn per cycle           (59.95%)
+
+     240.000884536 seconds time elapsed
+
+gautam@mypc:~/tempfolder/ryu$
+
+
+gautam@mypc:~/tempfolder/ryu$ ./perf.sh 10819 300
+
+ Performance counter stats for process id '10819':
+
+         63,856.34 msec task-clock                #    0.213 CPUs utilized
+     3,336,985,486      mem_load_uops_retired.l1_miss #   52.258 M/sec                    (60.10%) l1rate  81.55
+       826,161,731      br_misp_retired.conditional #   12.938 M/sec                    (39.86%)
+    39,501,783,628      branch-instructions       #  618.604 M/sec                    (19.93%)
+     1,661,451,361      branch-misses             #    4.21% of all branches          (29.89%)
+     4,111,810,708      l2_rqsts.miss             #   64.392 M/sec                    (39.90%)
+    11,775,292,370      l2_rqsts.references       #  184.403 M/sec                    (40.06%) l2rate  34.91
+     6,245,186,277      bus-cycles                #   97.801 M/sec                    (40.16%)
+     4,091,672,677      cache-references          #   64.076 M/sec                    (40.18%)
+   174,338,334,552      cpu-cycles                #    2.730 GHz                      (50.10%)
+   191,118,128,470      instructions              #    1.10  insn per cycle           (60.08%)
+
+     300.000806073 seconds time elapsed
+
+gautam@mypc:~/tempfolder/ryu$
+
 
 
 ###cbench.sh
